@@ -1,0 +1,110 @@
+# SkiesVouchers Configuration
+#
+# Voucher Format:
+#   voucher_key:
+#     name: "Display Name"
+#     id: "unique-id"
+#     commands:
+#       - "command1"
+#       - "command2"
+#     cooldown: 3600   # seconds, 0 = none
+#     max-uses: 5      # per player, 0 = unlimited
+#     item:
+#       material: PAPER
+#       name: "&bFancy Voucher"
+#       lore:
+#         - "&7Right-click to redeem"
+#         - "&eRewards: &fSomething cool"
+#       glow: true
+#
+# Placeholders in commands:
+#   [player], [uuid], [world], [x], [y], [z]
+
+vouchers:
+  # Example: Diamond reward voucher with no restrictions
+  diamond_reward:
+    name: "Diamond Reward"
+    id: "diamond_reward"
+    commands:
+      - "give [player] diamond 10"
+      - "tellraw [player] {\"text\":\"You received 10 diamonds!\",\"color\":\"aqua\"}"
+    cooldown: 0
+    max-uses: 0
+    item:
+      material: PAPER
+      name: "&bDiamond Voucher"
+      lore:
+        - "&7Right-click to claim 10 diamonds"
+        - "&fVoucher ID: &eDIAMOND"
+      glow: true
+  
+  # Example: Money voucher with 24-hour cooldown
+  daily_money:
+    name: "Daily Money Voucher"
+    id: "daily_money"
+    commands:
+      - "eco give [player] 1000"
+      - "tellraw [player] {\"text\":\"You received $1000!\",\"color\":\"gold\"}"
+    cooldown: 86400  # 24 hours
+    max-uses: 0
+    item:
+      material: NAME_TAG
+      name: "&6Daily Money"
+      lore:
+        - "&7Redeem for $1000"
+        - "&7Cooldown: &e24h"
+      glow: true
+  
+  # Example: XP voucher with max 3 uses per player
+  xp_boost:
+    name: "XP Boost Voucher"
+    id: "xp_boost"
+    commands:
+      - "xp add [player] 100 levels"
+      - "tellraw [player] {\"text\":\"You received 100 XP levels!\",\"color\":\"green\"}"
+    cooldown: 0
+    max-uses: 3
+    item:
+      material: EXPERIENCE_BOTTLE
+      name: "&aXP Boost"
+      lore:
+        - "&7Grants &e100 &7levels"
+        - "&7Uses per player: &e3"
+      glow: false
+  
+  # Example: Starter kit with cooldown and max uses
+  starter_kit:
+    name: "Starter Kit"
+    id: "starter_kit"
+    commands:
+      - "give [player] diamond_sword 1"
+      - "give [player] diamond_pickaxe 1"
+      - "give [player] cooked_beef 64"
+      - "tellraw [player] {\"text\":\"You received the starter kit!\",\"color\":\"yellow\"}"
+    cooldown: 3600  # 1 hour
+    max-uses: 1
+    item:
+      material: CHEST
+      name: "&eStarter Kit"
+      lore:
+        - "&7Right-click to claim a full kit"
+        - "&7Cooldown: &e1h"
+        - "&7Uses: &e1"
+      glow: true
+  
+  # Example: Teleport voucher
+  spawn_teleport:
+    name: "Spawn Teleport"
+    id: "spawn_tp"
+    commands:
+      - "tp [player] 0 100 0"
+      - "tellraw [player] {\"text\":\"Teleported to spawn!\",\"color\":\"light_purple\"}"
+    cooldown: 600  # 10 minutes
+    max-uses: 0
+    item:
+      material: ENDER_PEARL
+      name: "&dSpawn Teleport"
+      lore:
+        - "&7Right-click to teleport to spawn"
+        - "&7Cooldown: &e10m"
+      glow: true

@@ -1,0 +1,27 @@
+name: SkiesVouchers
+main: com.itzacat.Plugin
+author: ItzaCat, SuperrSohrab
+description: A plugin that gives players voucher items which run commands when right-clicked.
+website: https://modrinth.com/project/skiesvouchers
+version: 1.0
+api-version: 1.15
+
+commands:
+  voucher:
+    description: Main voucher command
+    usage: /voucher <redeem|give|reload|list>
+    aliases: [v, vouchers]
+
+permissions:
+  skiesvouchers.redeem:
+    description: Allows players to redeem voucher items
+    default: op
+  skiesvouchers.give:
+    description: Allows giving vouchers to other players
+    default: op
+  skiesvouchers.reload:
+    description: Allows reloading the plugin configuration
+    default: op
+  skiesvouchers.list:
+    description: Allows listing all available vouchers
+    default: true
