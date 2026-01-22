@@ -22,7 +22,7 @@ A Minecraft plugin that allows players to use vouchers that run configurable com
 
 ## Permissions
 
-- `skiesvouchers.redeem` - Allows players to redeem vouchers (default: true)
+- `skiesvouchers.redeem` - Allows players to redeem vouchers (default: op)
 - `skiesvouchers.give` - Allows giving vouchers to other players (default: op)
 - `skiesvouchers.reload` - Allows reloading the plugin configuration (default: op)
 - `skiesvouchers.list` - Allows listing all available vouchers (default: true)
